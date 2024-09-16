@@ -5,7 +5,7 @@ declare global {
 }
 
 const MONGODB_URI =
-  process.env.MONGODB_URI_LOCAL! || "mongodb://localhost:27017/test";
+  process.env.MONGODB_URI! || "mongodb://localhost:27017/test";
 
 if (!MONGODB_URI) {
   throw new Error(
