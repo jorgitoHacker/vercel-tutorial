@@ -1,5 +1,6 @@
 import { CalendarIcon } from "@heroicons/react/24/outline";
 import { generateYAxis } from "@/app/lib/utils";
+import { fetchRevenue } from "@/app/lib/data";
 
 // This component is representational only.
 // For data visualization UI, check out:
@@ -7,15 +8,11 @@ import { generateYAxis } from "@/app/lib/utils";
 // https://www.chartjs.org/
 // https://airbnb.io/visx/
 
-export default async function RevenueChart({
-  revenue,
-}: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  revenue: any[];
-}) {
+export default async function RevenueChart() {
+  const revenue = await fetchRevenue(); // Fetch data inside the component
   const chartHeight = 350;
-  // NOTE: Uncomment this code in Chapter 7
 
+  // NOTE: Uncomment this code in Chapter 7
   const { topLabel } = generateYAxis(revenue);
 
   if (!revenue || revenue.length === 0) {
