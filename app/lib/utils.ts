@@ -1,5 +1,3 @@
-import { Revenue } from "./definitions";
-
 export const formatCurrency = (amount: number) => {
   return (amount / 100).toLocaleString("en-US", {
     style: "currency",
@@ -21,7 +19,8 @@ export const formatDateToLocal = (
   return formatter.format(date);
 };
 
-export const generateYAxis = (revenue: Revenue[]) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const generateYAxis = (revenue: any[]) => {
   // Calculate what labels we need to display on the y-axis
   // based on highest record and in 1000s
   const yAxisLabels = [];
