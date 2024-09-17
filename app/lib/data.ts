@@ -66,14 +66,14 @@ export async function fetchCardData() {
 
     const numberOfInvoices = Number(data[0] ?? "0");
     const numberOfCustomers = Number(data[1] ?? "0");
-    //const totalPaidInvoices = formatCurrency(data[2].paid ?? "0");
-    //const totalPendingInvoices = formatCurrency(data[2].pending ?? "0");
+    const totalPaidInvoices = formatCurrency(data[2][1].total ?? "0");
+    const totalPendingInvoices = formatCurrency(data[2][0].total ?? "0");
 
     return {
       numberOfCustomers,
       numberOfInvoices,
-      //totalPaidInvoices,
-      //totalPendingInvoices,
+      totalPaidInvoices,
+      totalPendingInvoices,
     };
   } catch (error) {
     console.error("Database Error:", error);
@@ -197,3 +197,4 @@ export async function fetchCustomers() {
 //     throw new Error("Failed to fetch customer table.");
 //   }
 // }
+
