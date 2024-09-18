@@ -107,6 +107,7 @@ export async function fetchFilteredInvoices(
 
 export async function fetchInvoicesPages(query: string) {
   try {
+    await dbConnect();
     const count = await Invoice.countDocuments({
       $or: [{ status: new RegExp(query, "i") }],
     });
