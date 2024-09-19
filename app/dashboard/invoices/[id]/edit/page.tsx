@@ -1,4 +1,5 @@
 import { fetchCustomers, fetchInvoiceById } from "@/app/lib/data";
+import { TInvoice } from "@/app/lib/definitions";
 import Breadcrumbs from "@/app/ui/invoices/breadcrumbs";
 import EditInvoiceForm from "@/app/ui/invoices/edit-form";
 
@@ -13,6 +14,12 @@ export default async function Page({ params }: { params: { id: string } }) {
        id: customer._id.toString(),
        name: customer.name,
   }));
+  const invoiceObj: TInvoice = {
+    id: invoice._id.toString(),
+    customer_id: invoice.customer_id,
+    amount: invoice.amount,
+    status: invoice.status,
+  };
   return (
     <main>
       <Breadcrumbs
@@ -25,11 +32,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           },
         ]}
       />
-      {invoice.amount}
-      {invoice.status}
-      {invoice._id || " No tiene _id "}
-      {invoice.id || " No tiene id "}
-      {invoice.customer_id || " No tiene customer_id "}
+      
       <EditInvoiceForm customers={customersObj} /> 
     </main>
   );
