@@ -10,9 +10,10 @@ import Link from "next/link";
 import { Button } from "@/app/ui/button";
 
 export default function EditInvoiceForm({
-  customers,
+  customers, invoice
 }: {
   customers: { id: string; name: string }[];
+  invoice: TInvoice;
 }) {
   return (
     <form>
