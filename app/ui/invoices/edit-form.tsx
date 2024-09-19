@@ -10,13 +10,7 @@ import {
 import Link from "next/link";
 import { Button } from "@/app/ui/button";
 
-export default function EditInvoiceForm({
-  invoice,
-  customers,
-}: {
-  invoice: InvoiceForm;
-  customers: CustomerField[];
-}) {
+export default function EditInvoiceForm() {
   return (
     <div>Hola Mundo</div>
     // <form>
