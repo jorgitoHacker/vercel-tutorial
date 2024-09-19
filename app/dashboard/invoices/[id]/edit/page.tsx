@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           },
         ]}
       />
-      {customersObj}
+      {costumersObj}
       <EditInvoiceForm /> 
     </main>
   );
