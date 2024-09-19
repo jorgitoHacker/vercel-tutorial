@@ -59,6 +59,7 @@ export async function updateInvoice(id: string, formData: FormData) {
 
 
 export async function deleteInvoice(id: string) {
+  await dbConnect();
   await Invoice.findByIdAndDelete(id)
   revalidatePath("/dashboard/invoices");
 }
