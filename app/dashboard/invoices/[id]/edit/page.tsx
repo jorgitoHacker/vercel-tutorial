@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           },
         ]}
       />
-      costumersObj.map( (o, i) => (<div key={i}>{o.name}</div>) )
+      { costumersObj.map( (o, i) => (<div key={i}>{o.name}</div>) )}
       <EditInvoiceForm /> 
     </main>
   );
