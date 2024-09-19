@@ -25,13 +25,13 @@ export async function createInvoice(formData: FormData) {
   const amountInCents = amount * 100;
   const date = new Date().toISOString().split("T")[0];
 
-  await dbConnect();
-  await Invoice.create({
-    customer_id: customerId,
-    amount: amountInCents,
-    status,
-    date,
-  });
+  //await dbConnect();
+  //await Invoice.create({
+  //  customer_id: customerId,
+  //  amount: amountInCents,
+  //  status,
+  //  date,
+  //});
   revalidatePath("/dashboard/invoices");
   redirect("/dashboard/invoices");
 }
