@@ -9,10 +9,10 @@ export default async function Page({ params }: { params: { id: string } }) {
        fetchCustomers(),
      ]);
 
-  //   const costumersObj = customers.map((customer) => ({
-  //     id: customer._id.toString(),
-  //     name: customer.name,
-  //   }));
+  const costumersObj = customers.map((customer) => ({
+       id: customer._id.toString(),
+       name: customer.name,
+  }));
   return (
     <main>
       <Breadcrumbs
@@ -25,6 +25,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           },
         ]}
       />
+
       {/* <EditInvoiceForm
         invoice={{
           id: invoice._id.toString(),
