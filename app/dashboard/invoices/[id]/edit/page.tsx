@@ -1,18 +1,18 @@
-import { fetchCustomers, fetchInvoiceById } from "@/app/lib/data";
+//import { fetchCustomers, fetchInvoiceById } from "@/app/lib/data";
 import Breadcrumbs from "@/app/ui/invoices/breadcrumbs";
-import EditInvoiceForm from "@/app/ui/invoices/edit-form";
+//import EditInvoiceForm from "@/app/ui/invoices/edit-form";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
-  const [invoice, customers] = await Promise.all([
-    fetchInvoiceById(id),
-    fetchCustomers(),
-  ]);
+  //   const [invoice, customers] = await Promise.all([
+  //     fetchInvoiceById(id),
+  //     fetchCustomers(),
+  //   ]);
 
-  const costumersObj = customers.map((customer) => ({
-    id: customer._id.toString(),
-    name: customer.name,
-  }));
+  //   const costumersObj = customers.map((customer) => ({
+  //     id: customer._id.toString(),
+  //     name: customer.name,
+  //   }));
   return (
     <main>
       <Breadcrumbs
@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           },
         ]}
       />
-      <EditInvoiceForm
+      {/* <EditInvoiceForm
         invoice={{
           id: invoice._id.toString(),
           customer_id: invoice.customer_id,
@@ -33,7 +33,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           status: invoice.status,
         }}
         customers={costumersObj}
-      />
+      /> */}
     </main>
   );
 }
