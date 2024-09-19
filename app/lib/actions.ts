@@ -26,12 +26,12 @@ export async function createInvoice(formData: FormData) {
   const date = new Date().toISOString().split("T")[0];
 
   await dbConnect();
-  //await Invoice.create({
-  //  customer_id: customerId,
-  //  amount: amountInCents,
-  //  status,
-  //  date,
-  //});
+  await Invoice.insertMany({
+    customer_id: customerId,
+    amount: amountInCents,
+    status,
+    date,
+  });
   revalidatePath("/dashboard/invoices");
   redirect("/dashboard/invoices");
 }
