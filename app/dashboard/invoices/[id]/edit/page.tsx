@@ -9,7 +9,7 @@ export default async function Page({ params }: { params: { id: string } }) {
        fetchCustomers(),
      ]);
 
-  const custumersObj: {id: string; name: string}[] = customers.map((customer) => ({
+  const customersObj: {id: string; name: string}[] = customers.map((customer) => ({
        id: customer._id.toString(),
        name: customer.name,
   }));
@@ -26,7 +26,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         ]}
       />
 
-      <EditInvoiceForm custumers={custumersObj} /> 
+      <EditInvoiceForm customers={customersObj} /> 
     </main>
   );
 }
