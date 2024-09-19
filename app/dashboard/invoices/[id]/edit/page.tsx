@@ -33,7 +33,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         ]}
       />
       
-      <EditInvoiceForm customers={customersObj} /> 
+      <EditInvoiceForm customers={customersObj} invoice={invoiceObj} /> 
     </main>
   );
 }
