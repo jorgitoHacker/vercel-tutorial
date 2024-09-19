@@ -26,7 +26,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         ]}
       />
 
-      {/* <EditInvoiceForm
+      <EditInvoiceForm
         invoice={{
           id: invoice._id.toString(),
           customer_id: invoice.customer_id,
@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           status: invoice.status,
         }}
         customers={costumersObj}
-      /> */}
+      /> 
     </main>
   );
 }
