@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { Button } from "@/app/ui/button";
+import { TInvoice } from "@/app/lib/definitions";
 
 export default function EditInvoiceForm({
   customers, invoice
