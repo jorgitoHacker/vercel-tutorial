@@ -25,7 +25,10 @@ export default async function Page({ params }: { params: { id: string } }) {
           },
         ]}
       />
-
+      {invoice.amount}
+      {invoice.status}
+      {invoice._id}
+      {invoice.id}
       <EditInvoiceForm customers={customersObj} /> 
     </main>
   );
