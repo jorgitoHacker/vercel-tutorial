@@ -29,6 +29,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       {invoice.status}
       {invoice._id || " No tiene _id "}
       {invoice.id || " No tiene id "}
+      {invoice.customer_id || " No tiene customer_id "}
       <EditInvoiceForm customers={customersObj} /> 
     </main>
   );
