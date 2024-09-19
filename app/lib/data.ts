@@ -122,15 +122,18 @@ export async function fetchInvoicesPages(query: string) {
 export async function fetchInvoiceById(id: string) {
   try {
     await dbConnect();
-    const data = await Invoice.find({ id: id });
 
-    const invoice = data.map((invoice) => ({
-      ...invoice,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const data: any = await Invoice.findById(id).lean();
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const invoice = {
+      ...data,
       // Convert amount from cents to dollars
-      amount: invoice.amount / 100,
-    }));
+      amount: data.amount / 100,
+    };
 
-    return invoice[0];
+    return invoice;
   } catch (error) {
     console.error("Database Error:", error);
     throw new Error("Failed to fetch invoice.");
