@@ -5,6 +5,12 @@ import Form from "@/app/ui/invoices/create-form";
 export default async function Page() {
   const customers = await fetchCustomers();
 
+  const customersObj: { id: string; name: string }[] = customers.map(
+    (customer) => ({
+      id: customer._id.toString(),
+      name: customer.name,
+    })
+  );
   return (
     <main>
       <Breadcrumbs
@@ -17,7 +23,7 @@ export default async function Page() {
           },
         ]}
       />
-      <Form customers={customers} />
+      <Form customers={customersObj} />
     </main>
   );
 }
