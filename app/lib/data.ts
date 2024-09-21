@@ -125,6 +125,7 @@ export async function fetchInvoiceById(id: string) {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const data: any = await Invoice.findById(id).lean();
+    if (!data) return;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const invoice = {
