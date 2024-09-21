@@ -71,11 +71,10 @@ export async function deleteInvoice(id: string) {
   try {
     await dbConnect();
     await Invoice.findByIdAndDelete(id);
+    revalidatePath("/dashboard/invoices");
   } catch (error) {
     return {
       message: "Database Error: Failed to delete invoice.",
     };
   }
-
-  revalidatePath("/dashboard/invoices");
 }
