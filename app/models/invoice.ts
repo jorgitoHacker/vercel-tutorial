@@ -9,7 +9,6 @@ export interface IInvoice extends mongoose.Document {
 const InvoiceSchema = new Schema<IInvoice>({
   customer_id: {
     type: Schema.Types.String,
-    unique: true,
     required: [true, "El id es requerido"],
   },
 
