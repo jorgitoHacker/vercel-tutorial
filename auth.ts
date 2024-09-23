@@ -3,17 +3,21 @@ import { authConfig } from "./auth.config";
 import Credentials from "next-auth/providers/credentials";
 import { z } from "zod";
 import type { User } from "@/app/lib/definitions";
+import UserModel from "./app/models/user";
+import dbConnect from "./app/lib/dbConnect";
 //import bcrypt from "bcrypt";
 
 async function getUser(email: string): Promise<User | undefined> {
   try {
-    const user = {
-      name: "Jorge Luis",
-      email,
-      id: "sdfdfdfassaffafsfsdf",
-      password: "123456",
-    };
-    return user;
+    // const user = {
+    //   name: "Jorge Luis",
+    //   email,
+    //   id: "sdfdfdfassaffafsfsdf",
+    //   password: "123456",
+    // };
+    await dbConnect();
+    const user = await UserModel.find({ email });
+    return user[0];
   } catch (error) {
     console.error("Failed to fetch user:", error);
     throw new Error("Failed to fetch user.");
